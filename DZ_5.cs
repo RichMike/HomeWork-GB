@@ -84,25 +84,38 @@
 // [1 2 3 4 5] -> 5 8 3
 // [6 7 3 6] -> 36 21
 
-// int[] GetArray(int minValue, int maxValue, int count)
-// {
-//     int[] array = new int[count];
-//     for (int i = 0; i < count; i++)
-//     {
-//         array[i] = new Random().Next(minValue, maxValue + 1);
-//     }
-//     return array;
-// }
+int[] GetArray(int minValue, int maxValue, int count)
+{
+    int[] array = new int[count];
+    for (int i = 0; i < count; i++)
+    {
+        array[i] = new Random().Next(minValue, maxValue + 1);
+    }
+    return array;
+}
 
-// int[] resultArray = GetArray(0, 10, 5);
-// Console.WriteLine(String.Join("; ", resultArray));
+int[] resultArray = GetArray(0, 10, 9);
+Console.WriteLine(String.Join("; ", resultArray));
 
-// int size = resultArray.Length;
-// int i = 0;
+int size = resultArray.Length;
+int count = size / 2 + size % 2;
 
-// if (size % 2 == 0)
-//     int[] tempArray = new int[size/2];
-//     while (i < size / 2)
-//     {
-//         tempArray[i] = 
-//     }
+int[] tempArray = new int[count];
+
+if (count % 2 != 0)
+{
+    for (int i = 0; i < count - 1; i++)
+    {
+        tempArray[i] = resultArray[i] * resultArray[size - i - 1];
+    }
+    tempArray[count - 1] = resultArray[count - 1];
+}
+else
+{
+    for (int i = 0; i < count; i++)
+    {
+        tempArray[i] = resultArray[i] * resultArray[size - i - 1];
+    }
+}
+
+Console.WriteLine(String.Join("; ", tempArray));
