@@ -147,7 +147,7 @@ void GetAverageColumns(int[,] matrix)
     for (int j = 0; j < columns; j++)
     {
         double sum = 0;
-        for (int i = 0; i < columns; i++)
+        for (int i = 0; i < rows; i++)
         {
             sum = sum + matrix[i, j];
         }
